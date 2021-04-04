@@ -4,4 +4,4 @@ const config = {
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_DEV,
 };
 
-export { config }
+export { config };

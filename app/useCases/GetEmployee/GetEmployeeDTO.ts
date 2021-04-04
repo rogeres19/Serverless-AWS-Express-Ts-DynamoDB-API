@@ -1,3 +1,3 @@
 export interface GetEmployeeDTO {
-    id: string
+    id: string;
 }

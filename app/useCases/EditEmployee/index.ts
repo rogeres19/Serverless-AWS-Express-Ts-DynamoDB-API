@@ -2,16 +2,16 @@ import { ImplementationsEmployeeRepository } from "../../repositories/implementa
 import { EditEmployeeController } from "./EditEmployeeController";
 import { EditEmployeeUseCase } from "./EditEmployeeUseCase";
 
-const implementationsEmployeeRepository = new ImplementationsEmployeeRepository()
+const implementationsEmployeeRepository = new ImplementationsEmployeeRepository();
 
 
 const editEmployeeUseCase = new EditEmployeeUseCase(
-    implementationsEmployeeRepository
+    implementationsEmployeeRepository,
 
-)
+);
 
 const editEmployeeController = new EditEmployeeController(
-    editEmployeeUseCase
-)
+    editEmployeeUseCase,
+);
 
-export { editEmployeeUseCase, editEmployeeController }
+export { editEmployeeUseCase, editEmployeeController };

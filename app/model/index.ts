@@ -1,13 +1,13 @@
 import * as dynamoose from "dynamoose";
-import { v4 as uuid } from "uuid";
 import { Document } from "dynamoose/dist/Document";
-import { config } from "../config/database"
-import { Employee } from '../entities/Employee'
+import { v4 as uuid } from "uuid";
+import { config } from "../config/database";
+import { Employee } from "../entities/Employee";
 
 const ddb = new dynamoose.aws.sdk.DynamoDB({
-    "accessKeyId": config.accessKeyId,
-    "secretAccessKey": config.secretAccessKey,
-    "region": config.region
+    accessKeyId: config.accessKeyId,
+    secretAccessKey: config.secretAccessKey,
+    region: config.region,
 });
 
 dynamoose.aws.ddb.set(ddb);
@@ -29,11 +29,11 @@ const employeeSchema = new dynamoose.Schema({
     role: {
         type: String,
         required: true,
-    }
+    },
 },
     {
         timestamps: true,
     });
 
-const model = dynamoose.model<Employee & Document>('employee', employeeSchema);
+const model = dynamoose.model<Employee & Document>("employee", employeeSchema);
 export { model as EmployeeModel };

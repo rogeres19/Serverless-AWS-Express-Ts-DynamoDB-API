@@ -9,12 +9,12 @@ export class EditEmployeeUseCase {
     ) { }
 
 
-    async execute(data: EditEmployeeDTO) {
+    public async execute(data: EditEmployeeDTO) {
 
         const employeeExist = await this.employeesRepository.findById(data.id);
 
         if (!employeeExist) {
-            throw new Error('Employee does not exists.')
+            throw new Error("Employee does not exists.");
         }
 
         const completeDataEmployee: Employee = Object.assign({}, employeeExist, data);

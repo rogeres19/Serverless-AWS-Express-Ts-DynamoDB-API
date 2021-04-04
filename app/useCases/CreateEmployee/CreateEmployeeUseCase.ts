@@ -8,7 +8,7 @@ export class CreateEmployeeUseCase {
         private employeesRepository: IEmployeesRepository,
     ) { }
 
-    async execute(data: CreateEmployeeDTO) {
+    public async execute(data: CreateEmployeeDTO) {
         const employee = new Employee(data);
         const response = await this.employeesRepository.save(employee);
         return response;

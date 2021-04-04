@@ -2,16 +2,16 @@ import { ImplementationsEmployeeRepository } from "../../repositories/implementa
 import { GetEmployeeController } from "./GetEmployeeController";
 import { GetEmployeeUseCase } from "./GetEmployeeUseCase";
 
-const implementationsEmployeeRepository = new ImplementationsEmployeeRepository()
+const implementationsEmployeeRepository = new ImplementationsEmployeeRepository();
 
 
 const getEmployeeUseCase = new GetEmployeeUseCase(
-    implementationsEmployeeRepository
+    implementationsEmployeeRepository,
 
-)
+);
 
 const getEmployeeController = new GetEmployeeController(
-    getEmployeeUseCase
-)
+    getEmployeeUseCase,
+);
 
-export { getEmployeeUseCase, getEmployeeController }
+export { getEmployeeUseCase, getEmployeeController };

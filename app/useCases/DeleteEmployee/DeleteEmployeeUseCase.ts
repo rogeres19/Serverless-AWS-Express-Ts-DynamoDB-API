@@ -7,11 +7,12 @@ export class DeleteEmployeeUseCase {
         private employeesRepository: IEmployeesRepository,
     ) { }
 
-    async execute(data: DeleteEmployeeDTO) {
+    public async execute(data: DeleteEmployeeDTO) {
         const employExist = await this.employeesRepository.findById(data.id);
 
-        if (!employExist)
-            throw new Error('Employee does not exists.')
+        if (!employExist) {
+            throw new Error("Employee does not exists.");
+        }
 
         const response = await this.employeesRepository.delete(data.id);
 

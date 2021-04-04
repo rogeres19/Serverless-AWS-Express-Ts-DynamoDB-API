@@ -7,12 +7,13 @@ export class GetEmployeeUseCase {
         private employeesRepository: IEmployeesRepository,
     ) { }
 
-    async execute(data: GetEmployeeDTO) {
+    public async execute(data: GetEmployeeDTO) {
 
         const response = await this.employeesRepository.findById(data.id);
 
-        if (!response)
-            throw new Error('Employee does not exists.')
+        if (!response) {
+            throw new Error("Employee does not exists.");
+        }
 
 
         return response;

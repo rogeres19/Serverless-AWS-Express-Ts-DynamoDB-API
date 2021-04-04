@@ -7,14 +7,16 @@ export class Employee {
     public role: string;
 
 
-    constructor(props: Omit<Employee, 'id'>, id?: string) {
+    constructor(props: Omit<Employee, "id">, id?: string) {
         Object.assign(this, props);
-        if (!id)
+        if (!id) {
             this.id = uuid();
+        }
 
         const hasError = this.validate(Object.assign(this, props));
-        if (hasError)
+        if (hasError) {
             throw new Error(hasError.error);
+        }
     }
 
     private validate({ role, age, name }): void | any {
@@ -22,8 +24,7 @@ export class Employee {
             return ({ error: '"role" must be a string' });
         } else if (typeof name !== "string") {
             return ({ error: '"name" must be a string' });
-        }
-        else if (typeof age !== "number") {
+        } else if (typeof age !== "number") {
             return ({ error: '"age" must be a number' });
         }
 

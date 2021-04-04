@@ -1,3 +1,3 @@
 export interface DeleteEmployeeDTO {
-    id: string
+    id: string;
 }
