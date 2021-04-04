@@ -1,0 +1,55 @@
+org: rogeres19
+app: my-aws-node-express-dynamodb-api-app
+service: my-aws-node-express-dynamodb-api-app
+
+useDotenv: true
+
+frameworkVersion: '2'
+
+custom:
+  tableName: 'employees-table-${self:provider.stage}'
+  # serverless-offline:
+  #   host: 0.0.0.0 # for docker container hosting
+  # dynamodb:
+  #   start:
+  #     migrate: true
+  #   stages:
+  #     - dev
+    
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+  stage: dev
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: '*'
+
+  environment:
+    EMPLOYEES_TABLE: ${self:custom.tableName}
+   
+
+functions:
+  api:
+    handler: app/handler.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  # - serverless-dynamodb-local
