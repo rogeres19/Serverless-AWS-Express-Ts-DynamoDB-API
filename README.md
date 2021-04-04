@@ -10,8 +10,6 @@ Principais tecnologias utilizadas no código.
 
 [Typescript](https://www.typescriptlang.org/)
 
-[Jest](https://jestjs.io/)
-
 [AWS-DynamoDB](https://aws.amazon.com/pt/dynamodb/)
 
 [Serverless](https://www.serverless.com/)

@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "53f34176-f6fb-480b-bbc1-2868b5b7d21c",
+		"name": "employess",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "seqm2y6ay7.execute-api.us-east-1.amazonaws.com/dev/employees/b7eb5da0-94e-11eb-af68-4b16abcead26",
+					"host": [
+						"seqm2y6ay7",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"employees",
+						"b7eb5da0-94e-11eb-af68-4b16abcead26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"outro\",\n    \"role\": \"admin\",\n    \"age\":13\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "seqm2y6ay7.execute-api.us-east-1.amazonaws.com/dev/employees/b7eb5da0-94e1-11eb-af68-4b16abcead26",
+					"host": [
+						"seqm2y6ay7",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"employees",
+						"b7eb5da0-94e1-11eb-af68-4b16abcead26"
+					]
+				},
+				"description": "Atualizar Funcionário"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"name\": \"userId\",\n      \"role\": \"asd\",\n      \"age\":99\n}\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "seqm2y6ay7.execute-api.us-east-1.amazonaws.com/dev/employees/",
+					"host": [
+						"seqm2y6ay7",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"employees",
+						""
+					]
+				},
+				"description": "Cadastrar Funcionário"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "seqm2y6ay7.execute-api.us-east-1.amazonaws.com/dev/employees/b7eb5da0-94e-11eb-af68-4b16abcead26",
+					"host": [
+						"seqm2y6ay7",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"employees",
+						"b7eb5da0-94e-11eb-af68-4b16abcead26"
+					]
+				},
+				"description": "Excluir Funcionário"
+			},
+			"response": []
+		}
+	]
+}
