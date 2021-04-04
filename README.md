@@ -1,4 +1,4 @@
-# Serverless AWS Express DynamoDB API for Employees
+# Desafio Serverless AWS Express DynamoDB API for Employees
 
 
 
@@ -16,7 +16,7 @@ Principais tecnologias utilizadas no código.
 
 [Serverless](https://www.serverless.com/)
 
-[AWS-Lambda] (https://aws.amazon.com/pt/lambda/)
+[AWS-Lambda](https://aws.amazon.com/pt/lambda/)
 
 [Github ](https://github.com/)
 
@@ -70,59 +70,3 @@ If you try to retrieve employee that does not exist, you should receive the foll
     "message": "Employee does not exists."
 }
 ```
-
-### Local development
-
-It is also possible to emulate DynamodB, API Gateway and Lambda locally by using `serverless-dynamodb-local` and `serverless-offline` plugins. In order to do that, execute the following commands:
-
-```bash
-serverless plugin install -n serverless-dynamodb-local
-serverless plugin install -n serverless-offline
-```
-
-It will add both plugins to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`. Make sure that `serverless-offline` is listed as last plugin in `plugins` section:
-
-```
-plugins:
-  - serverless-dynamodb-local
-  - serverless-offline
-```
-
-You should also add the following config to `custom` section in `serverless.yml`:
-
-```
-custom:
-  (...)
-  dynamodb:
-    start:
-      migrate: true
-    stages:
-      - dev
-```
-
-Additionally, we need to reconfigure `AWS.DynamoDB.DocumentClient` to connect to our local instance of DynamoDB. We can take advantage of `IS_OFFLINE` environment variable set by `serverless-offline` plugin and replace:
-
-```javascript
-const dynamoDbClient = new AWS.DynamoDB.DocumentClient();
-```
-
-with the following:
-
-```javascript
-const dynamoDbClientParams = {};
-if (process.env.IS_OFFLINE) {
-  dynamoDbClientParams.region = 'localhost'
-  dynamoDbClientParams.endpoint = 'http://localhost:8000'
-}
-const dynamoDbClient = new AWS.DynamoDB.DocumentClient(dynamoDbClientParams);
-```
-
-After that, running the following command with start both local API Gateway emulator as well as local instance of emulated DynamoDB:
-
-```bash
-serverless offline start
-```
-
-To learn more about the capabilities of `serverless-offline` and `serverless-dynamodb-local`, please refer to their corresponding GitHub repositories:
-- https://github.com/dherault/serverless-offline
-- https://github.com/99x/serverless-dynamodb-local
