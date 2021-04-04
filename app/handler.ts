@@ -1,5 +1,4 @@
-import express from 'express';
-import Router from "express"
+import express, { Router } from "express"
 import serverless from "serverless-http";
 import { createEmployeeController } from "./useCases/CreateEmployee"
 import { editEmployeeController } from "./useCases/EditEmployee"
